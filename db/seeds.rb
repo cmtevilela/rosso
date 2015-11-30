@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-#CREATE SOME NEW POPOS 
+#Ordinary CASH entrances
 ent_ord = ["Salário", "Salário - part-time", "Aposentadoria", "Previdência Privada", 
 	"Previdência Privada FIP", "Profissional Autônomo", "13º", "Salário OBRA", 
 	"Salário Cidadela", "Salário OBRA part-time", "Salário CENTROS", 
@@ -15,20 +15,23 @@ ent_ord = ["Salário", "Salário - part-time", "Aposentadoria", "Previdência Pr
 	"Salário CENTROS part-time", "Comunhão Bens Casado", "Comunhão Bens Externo Casado", 
 	"Providência para o Focolare"]
 
+#Extraordinary CASH entrances
 ent_ext = ["Salário (fora zona)", "Aposentadoria (fora zona)", "Previdência Privada (fora zona)", 
 	"Reembolso imposto trabalho", "Reembolso seguro móveis / imóveis", "Reembolso plano de saúde", 
 	"Acerto Final de Trabalho", "Salário Atrasado", "Aposentadoria Atrasada", "Previdência Privada Atrasada"]
 
-
+#Center CASH entrances
 ent_cent = ["Sobra Mariápolis", "Providência para a Seção", "Reembolso Impostos  Ente Moral", 
 	"Herança Foc.o Voto Perpétuo", "Herança Foc.o em Prova e com Voto Tempor", "Outras Entradas Conta Centro"]
 
+#Ordinary Outgoings
 desp_ord = ["Trabalho", "Impostos Trabalho", "Contributo INSS", "Contributo Previdência Privada", 
 	"Ajuda a pais de focolarinos", "Ajuda a Foc Casados", "Saídas Foc não Convivente", "Vistos e Documentos", 
 	"Presentes", "Oferta p/ Missa Sufrágios", "Médicos e Exames Gerais", "Medicamentos", "Plano de Saúde", 
 	"Férias", "Esporte e Repouso", "Aluguél Focolare", "Taxa Hipoteca", "Condomínio", "Luz ou Água", 
 	"Telefone / Internet", "Combustível / Transporte Focolare", "Multas"]
 
+#Extraordinary Outgoings
 desp_ext = ["Contributo INSS (f.z.)", 
 "Contributo Previdência Privada (f.z.)", 
 "Ajuda a Pais de Foc Vida Comum", 
@@ -68,10 +71,12 @@ desp_ext = ["Contributo INSS (f.z.)",
 "Material Informática", 
 "Assinatura Revistas / Papelaria"]
 
+#Center Outgoings
 desp_cent = ["Imóveis - Aquisição e Reformas", 
 "Auto - Aquisição e Provisões", 
 "Outras Saídas Conta Centro"]
 
+#Focolare Outgoings
 desp_foc = ["Verde", 
 "Azul", 
 "Extra Pessoal", 

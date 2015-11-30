@@ -11,16 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151130175843) do
+ActiveRecord::Schema.define(version: 20151130233207) do
 
   create_table "cash_flows", force: :cascade do |t|
     t.string   "description", limit: 255
-    t.decimal  "value",                   precision: 10, null: false
-    t.date     "date"
-    t.integer  "kind_id",     limit: 4,                  null: false
-    t.integer  "popo_id",     limit: 4,                  null: false
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
+    t.decimal  "value",                   precision: 9, scale: 2, null: false
+    t.date     "date",                                            null: false
+    t.integer  "kind_id",     limit: 4,                           null: false
+    t.integer  "popo_id",     limit: 4,                           null: false
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
   end
 
   add_index "cash_flows", ["kind_id"], name: "fk_rails_c5c7800a33", using: :btree
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20151130175843) do
 
   create_table "kinds", force: :cascade do |t|
     t.string   "name",        limit: 255, null: false
-    t.integer  "category_id", limit: 4
+    t.integer  "category_id", limit: 4,   null: false
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
   end

@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151130135109) do
+ActiveRecord::Schema.define(version: 20151130174517) do
+
+  create_table "cash_flows", force: :cascade do |t|
+    t.string   "description", limit: 255
+    t.decimal  "value",                   precision: 10, null: false
+    t.date     "date"
+    t.integer  "kind_id",     limit: 4,                  null: false
+    t.integer  "popo_id",     limit: 4,                  null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+  end
+
+  add_index "cash_flows", ["kind_id"], name: "fk_rails_c5c7800a33", using: :btree
+  add_index "cash_flows", ["popo_id"], name: "fk_rails_7d35c9486d", using: :btree
 
   create_table "categories", force: :cascade do |t|
     t.string   "name",       limit: 255, null: false
@@ -34,5 +47,7 @@ ActiveRecord::Schema.define(version: 20151130135109) do
     t.datetime "updated_at",             null: false
   end
 
+  add_foreign_key "cash_flows", "kinds"
+  add_foreign_key "cash_flows", "popos"
   add_foreign_key "kinds", "categories"
 end

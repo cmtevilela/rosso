@@ -1,0 +1,6 @@
+<h1>Estes são os popos do focolare</h1>
+
+<% @popos.each do |popo| %>
+	<p><%= link_to popo.name, popo %></p>
+<% end %>
+<p><%= link_to "Cadastrar Popo", new_popo_path%></p>

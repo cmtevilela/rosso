@@ -15,10 +15,10 @@ ActiveRecord::Schema.define(version: 20151130233207) do
 
   create_table "cash_flows", force: :cascade do |t|
     t.string   "description", limit: 255
-    t.decimal  "value",                   precision: 9, scale: 2, null: false
+    t.decimal  "value",                   precision: 9, scale: 2
     t.date     "date",                                            null: false
-    t.integer  "kind_id",     limit: 4,                           null: false
-    t.integer  "popo_id",     limit: 4,                           null: false
+    t.integer  "kind_id",     limit: 4
+    t.integer  "popo_id",     limit: 4
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
   end

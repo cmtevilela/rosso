@@ -1,1 +1,13 @@
-<h1>Edit page</h1>
+<h1>Editar <%= @popo.name %></h1>
+
+<%= form_for @popo do |f| %>
+  <p>
+    <%= f.label :name, "Nome" %><br>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :is_married, "Tipo" %><br>
+    <%= f.select :is_married, [["Casado", true], ["Vida Comum", false]] %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

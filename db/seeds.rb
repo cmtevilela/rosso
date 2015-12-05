@@ -111,8 +111,8 @@ popos_casados = ["João Fracisco",
 "Evilazio", 
 "Sérgio Melquiades"]
 
-categories.each do |i|
-	Category.create(name:i)
+categories.each do |category|
+	Category.create(name: category)
 end
 
 popos_casados.each do |i|

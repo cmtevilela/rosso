@@ -1,12 +1,9 @@
-<h1>Estes são os popos do focolare</h1>
+<h1>Popos do Regional São Paulo</h1>
 
 
 <table class="popos" cellspacing="0" cellpadding="0">
   <thead>
     <tr>
-      <th>
-        id
-      </th>
       <th>
         Nome
       </th>
@@ -22,10 +19,6 @@
     <% @popos.each_with_index do |popo, i| %>
       <tr>
         <td>
-          <%= popo.id %>
-        </td>
-
-        <td>
           <%= link_to popo.name, popo %>
         </td>
 
@@ -38,7 +31,7 @@
           <%= link_to "Editar", edit_popo_path(popo) %>
         </td>
         <td>
-          <%= link_to 'Destroy', popo, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to 'Deletar', popo, method: :delete, data: { confirm: 'Are you sure?' } %>
         </td>
       </tr>
     <% end %>

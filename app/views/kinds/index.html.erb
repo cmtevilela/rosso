@@ -24,11 +24,17 @@
         <td>
           <%= link_to Category.find(kind.category_id).name, kind %>
         </td>
-
-
+        <td>
+          <%= link_to "Editar", edit_kind_path(kind) %>
+        </td>
+        <td>
+          <%= link_to 'Deletar', kind, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 
 </table>
+
+<p><%= link_to "Cadastrar Tipo de Entrada / Despesa", new_kind_path%></p>
 

@@ -16,7 +16,7 @@ class KindsController < ApplicationController
   end
 
 	def create
-		@kind = Kind.new(popos_params)    
+		@kind = Kind.new(kinds_params)    
 
     if @kind.save
       redirect_to kinds_path, :notice => "Tipo criado com sucesso."
@@ -51,7 +51,7 @@ class KindsController < ApplicationController
 		@kind = Kind.find(params[:id])
     @kind.destroy
     respond_to do |format|
-      format.html { redirect_to popos_url, notice: 'Tipo deletado com sucesso' }
+      format.html { redirect_to kinds_url, notice: 'Tipo deletado com sucesso' }
       format.json { head :no_content }
     end
 	end

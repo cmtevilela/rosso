@@ -4,10 +4,24 @@
 
 
 table.popos {
-  width: 100%;
+  width: 70%;
+  position: center;
+
+  border: 1px solid black;
 
   th {
     text-align: left;
     border-bottom: 1px solid black;
+    padding: 10px;
+    
+  }
+  td {
+  	padding: 10px;
+  }
+  tr:hover {
+    background-color: white;
+  }
+  tr:nth-child(even) {
+  	background-color: #f2f2f2
   }
 }

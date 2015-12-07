@@ -1,0 +1,34 @@
+<h1>Kinds page</h1>
+
+<table class="kinds" cellspacing="0" cellpadding="0">
+  <thead>
+    <tr>
+      <th>
+        Nome
+      </th>
+      <th>
+        Tipo
+      </th>
+      <th>
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @kinds.each_with_index do |kind, i| %>
+      <tr>
+        <td>
+          <%= link_to kind.name, kind %>
+        </td>
+
+        <td>
+          <%= link_to Category.find(kind.category_id).name, kind %>
+        </td>
+
+
+      </tr>
+    <% end %>
+  </tbody>
+
+</table>
+

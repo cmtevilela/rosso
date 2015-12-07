@@ -1,0 +1,14 @@
+<h1> Editar <%= @kind.name %></h1>
+
+<%= form_for @kind do |kind| %>
+  <p>
+    <%= kind.label :name, "Nome" %><br>
+    <%= kind.text_field :name %>
+  </p>
+  <p>
+    <%= kind.label :category_id, "Tipo" %><br>
+    <%= kind.collection_select(:category_id, Category.all, :id, :name) %>
+  </p>
+  <p><%= kind.submit %></p>
+<% end %>
+

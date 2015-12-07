@@ -1,0 +1,13 @@
+<h1>
+	<%= @kind.name %>
+</h1>
+<p>
+	<%= Category.find(@kind.category_id).name %>
+</p>
+<p>
+	<%= @kind.updated_at %>
+</p>
+
+<p>
+	<%= link_to "Editar", edit_kind_path(@kind) %>
+</p>

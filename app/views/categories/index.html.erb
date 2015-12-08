@@ -1,0 +1,27 @@
+<table class="zebra" cellspacing="0" cellpadding="0">
+  <thead>
+	  <tr>
+	    <th>
+		  <%= "Categorias" %>
+	    </th>
+	    <th></th>
+	  </tr>
+	</thead>
+	<tbody>
+	  <% @categories.each do |category| %>
+	    <tr>
+  	      <td>
+	  	    <%= link_to category.name, category %>
+	  	  </td>
+      	  <td>
+	  	    <%= link_to 'editar', edit_category_path(category) %> | 
+	  	    <%= link_to 'remover', category, method: :delete, data: { confirm: "Você tem certeza que quer remover #{category.name}?" } %>
+	  	  </td>
+	    <% end %>
+  	  </tr>
+	</tbody>
+</table>
+
+<p><%= link_to "Cadastrar nova Categoria", new_category_path %></p>
+
+

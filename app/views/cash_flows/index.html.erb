@@ -1,0 +1,44 @@
+<h1>Descrição das Entradas / Despesas</h1>
+
+<table class="zebra" cellspacing="0" cellpadding="0">
+	<thead>
+		<tr>
+			<th>
+				Data
+			</th>
+		  <th>
+				Popo
+			</th>
+			<th>
+				Descrição
+			</th>
+			<th>
+				Tipo
+			</th>
+			<th>
+				Valor
+			</th>	
+		</tr>
+	</thead>
+	<tbody>
+	  <tr>
+	    <% @cash_flows.each do |cash| %>
+	  	<td>
+	  		<%= cash.date %>
+	  	</td>
+	    <td>
+	  	  <%= Popo.find(cash.popo_id).name %>	
+	  	</td>
+      <td>
+	  		<%= cash.description %>
+	  	</td>
+	  	<td>
+	  		<%= Kind.find(cash.kind_id).name %>
+	  	</td>
+	  	<td>
+	  		<%= cash.value %>
+	  	</td>
+	  	<% end %>
+	  </tr>
+	</tbody>
+</table>

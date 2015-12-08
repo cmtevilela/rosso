@@ -1,7 +1,7 @@
 <h1>Popos do Regional São Paulo</h1>
 <%= @kinds %>
 
-<table class="popos" cellspacing="0" cellpadding="0">
+<table class="zebra" cellspacing="0" cellpadding="0">
   <thead>
     <tr>
       <th>
@@ -10,28 +10,26 @@
       <th>
         Tipo
       </th>
+
       <th>
       </th>
     </tr>
   </thead>
 
   <tbody>
-    <% @popos.each_with_index do |popo, i| %>
+    <% @popos.each do |popo| %>
       <tr>
         <td>
           <%= link_to popo.name, popo %>
         </td>
 
         <td>
-          <%= @popos_string[i] %>
+          <%= popo_status(popo) %>
         </td>
 
-
         <td>
-          <%= link_to "Editar", edit_popo_path(popo) %>
-        </td>
-        <td>
-          <%= link_to 'Deletar', popo, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to "editar", edit_popo_path(popo) %> | 
+          <%= link_to 'remover', popo, method: :delete, data: { confirm: "Você tem certeza que quer remover #{popo.name}?" } %>
         </td>
       </tr>
     <% end %>

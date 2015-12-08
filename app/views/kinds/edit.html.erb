@@ -1,14 +1,14 @@
 <h1> Editar <%= @kind.name %></h1>
 
-<%= form_for @kind do |kind| %>
+<%= form_for @kind do |f| %>
   <p>
-    <%= kind.label :name, "Nome" %><br>
-    <%= kind.text_field :name %>
+    <%= f.label :name, "Nome" %><br>
+    <%= f.text_field :name %>
   </p>
   <p>
-    <%= kind.label :category_id, "Categoria" %><br>
-    <%= kind.collection_select(:category_id, Category.all, :id, :name) %>
+    <%= f.label :category_id, "Categoria" %><br>
+    <%= f.collection_select(:category_id, Category.all, :id, :name) %>
   </p>
-  <p><%= kind.submit %></p>
+  <p><%= f.submit %></p>
 <% end %>
 

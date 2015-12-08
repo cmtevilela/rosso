@@ -11,6 +11,12 @@
   <header class="main-header">
     <h1>Rosso</h1>
   </header>
+
+  <% if flash[:notice] %>
+    <div class="notice">
+      <%= flash[:notice] %>
+    </div>
+  <% end -%>
   
   <%= yield %>
 

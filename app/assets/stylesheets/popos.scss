@@ -1,27 +1,3 @@
 // Place all the styles related to the popos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
-
-table.popos {
-  width: 70%;
-  position: center;
-
-  border: 1px solid black;
-
-  th {
-    text-align: left;
-    border-bottom: 1px solid black;
-    padding: 10px;
-    
-  }
-  td {
-  	padding: 10px;
-  }
-  tr:hover {
-    background-color: white;
-  }
-  tr:nth-child(even) {
-  	background-color: #f2f2f2
-  }
-}

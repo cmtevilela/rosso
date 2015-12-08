@@ -12,7 +12,6 @@ header.main-header {
 }
 
 body {
-  background-color: #c0c5ce;
   background-repeat: no-repeat;
   margin-top: 90px;
 }
@@ -38,3 +37,32 @@ a:hover {
   text-decoration: none;
 }
 
+table.zebra {
+  width: 100%;
+
+  border: 1px solid black;
+
+  th {
+    text-align: left;
+    border-bottom: 1px solid black;
+    padding: 10px;
+  }
+  td {
+    padding: 10px;
+  }
+  tr:hover {
+    background-color: white;
+  }
+  tr:nth-child(even) {
+    background-color: #ddd
+  }
+}
+
+
+.notice {
+  background-color: #b7f4bd;
+  border: 1px solid #299308;
+  color: #299308;
+  padding: 15px;
+  font-size: 14px;
+}

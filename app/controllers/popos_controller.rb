@@ -1,26 +1,11 @@
 class PoposController < ApplicationController
+  before_action :set_popo, only: [:show, :edit, :update, :destroy]
 
   def index
     @popos = Popo.all.order(:name)
-
-    @popos_string = []
-    
-    @popos.each do |popo|
-      if popo.is_married?
-        @popos_string << "Casado"
-      else
-        @popos_string << "Vida Comum"
-      end
-    end
   end
   
   def show
-    @popo = Popo.find(params[:id])
-    if @popo.is_married?
-      @popo_status = "Casado"
-    else
-      @popo_status = "Vida Comum"
-    end
   end
 
   def new
@@ -35,34 +20,34 @@ class PoposController < ApplicationController
     @popo = Popo.new(popos_params)    
 
     if @popo.save
-      redirect_to popos_path, :notice => "Popo criado com sucesso."
+      redirect_to popos_path, notice: "Popo criado com sucesso."
     else
       render "new"
     end
   end
 
   def edit
-    @popo = Popo.find(params[:id])
-    
   end
 
   def update
-    @popo = Popo.find(params[:id])
-
     if @popo.update_attributes(popos_params)
-      redirect_to popos_path, :notice => "Popo atualizado com sucesso."
+      redirect_to popos_path, notice: "Popo atualizado com sucesso."
     else
       render "edit"
     end
   end
 
   def destroy
-    @popo = Popo.find(params[:id])
     @popo.destroy
     respond_to do |format|
       format.html { redirect_to popos_url, notice: 'Popo was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
+
+  private
+    def set_popo
+      @popo = Popo.find(params[:id])
+    end
 end
 

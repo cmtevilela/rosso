@@ -1,6 +1,6 @@
 <h1>Kinds page</h1>
 
-<table class="kinds" cellspacing="0" cellpadding="0">
+<table class="zebra" cellspacing="0" cellpadding="0">
   <thead>
     <tr>
       <th>
@@ -15,20 +15,19 @@
   </thead>
 
   <tbody>
-    <% @kinds.each_with_index do |kind, i| %>
+    <% @kinds.each do |kind| %>
       <tr>
         <td>
           <%= link_to kind.name, kind %>
         </td>
 
         <td>
-          <%= link_to Category.find(kind.category_id).name, kind %>
+          <% link_to Category.find(kind.category_id).name, kind %>
+          <%= link_to kind.category.name, kind %>
         </td>
         <td>
-          <%= link_to "Editar", edit_kind_path(kind) %>
-        </td>
-        <td>
-          <%= link_to 'Deletar', kind, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to "editar", edit_kind_path(kind) %> | 
+          <%= link_to 'deletar', kind, method: :delete, data: { confirm: 'Are you sure?' } %>
         </td>
       </tr>
     <% end %>

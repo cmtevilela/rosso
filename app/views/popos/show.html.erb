@@ -1,5 +1,5 @@
 <h1><%= @popo.name %></h1>
-<p> <%= @popo_status %></p>
+<p> <%= popo_status(@popo) %></p>
 <p> <%= @popo.created_at %></p>
 
 <p><%= link_to "Edit", edit_popo_path(@popo)%></p>

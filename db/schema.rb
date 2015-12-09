@@ -11,14 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151205175245) do
+ActiveRecord::Schema.define(version: 20151209222010) do
 
   create_table "cash_flows", force: :cascade do |t|
     t.string   "description", limit: 255
-    t.decimal  "value",                   precision: 9, scale: 2, null: false
+    t.decimal  "value",                   precision: 9, scale: 2
     t.date     "date",                                            null: false
-    t.integer  "kind_id",     limit: 4,                           null: false
-    t.integer  "popo_id",     limit: 4,                           null: false
+    t.integer  "kind_id",     limit: 4
+    t.integer  "popo_id",     limit: 4
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
   end
@@ -42,10 +42,13 @@ ActiveRecord::Schema.define(version: 20151205175245) do
   add_index "kinds", ["category_id"], name: "index_kinds_on_category_id", using: :btree
 
   create_table "popos", force: :cascade do |t|
-    t.string   "name",       limit: 255, null: false
-    t.boolean  "is_married",             null: false
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "name",       limit: 255,                 null: false
+    t.boolean  "is_married",                             null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+    t.string   "email",      limit: 255,                 null: false
+    t.string   "password",   limit: 255,                 null: false
+    t.boolean  "admin",                  default: false
   end
 
   add_foreign_key "cash_flows", "kinds"

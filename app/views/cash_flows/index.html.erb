@@ -17,28 +17,38 @@
 			</th>
 			<th>
 				Valor
-			</th>	
+			</th>
+			<th>
+            </th>	
 		</tr>
 	</thead>
 	<tbody>
+	  <% @cash_flows.each do |cash_flow| %>
 	  <tr>
-	    <% @cash_flows.each do |cash| %>
 	  	<td>
-	  		<%= cash.date %>
+	  		<%= cash_flow.date %>
 	  	</td>
 	    <td>
-	  	  <%= Popo.find(cash.popo_id).name %>	
+	  	  <%= Popo.find(cash_flow.popo_id).name %>	
 	  	</td>
       <td>
-	  		<%= cash.description %>
+	  		<%= cash_flow.description %>
 	  	</td>
 	  	<td>
-	  		<%= Kind.find(cash.kind_id).name %>
+	  		<%= Kind.find(cash_flow.kind_id).name %>
 	  	</td>
 	  	<td>
-	  		<%= cash.value %>
+	  		<%= cash_flow.value %>
+	  	</td>
+	  	<td> 
+	  	  <%= link_to 'editar', edit_cash_flow_path(cash_flow) %> | 
+          <%= link_to 'remover', cash_flow, method: :delete, data: { confirm: "Você tem certeza que quer remover #{cash_flow.description}?" } %>		
+	  		
 	  	</td>
 	  	<% end %>
 	  </tr>
 	</tbody>
+
 </table>
+
+<%= link_to "Registrar nova Entrada / Despesa", new_cash_flow_path %>

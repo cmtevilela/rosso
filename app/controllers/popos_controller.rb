@@ -13,7 +13,7 @@ class PoposController < ApplicationController
   end
 
   def popos_params
-    params.require(:popo).permit(:name, :is_married)
+    params.require(:popo).permit(:name, :email, :password, :password_confirmation, :is_married)
   end
 
   def create  
@@ -49,5 +49,7 @@ class PoposController < ApplicationController
     def set_popo
       @popo = Popo.find(params[:id])
     end
+
+    
 end
 

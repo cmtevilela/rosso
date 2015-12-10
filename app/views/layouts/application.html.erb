@@ -9,12 +9,26 @@
 <body>
   
   <header class="main-header">
+     <% if session[:popo_id].present? %>
+      <span style="float: right">
+        <%= Popo.find(session[:popo_id]).name %> | 
+        <%= link_to "Logout", logout_path, method: :delete %>
+      </span>
+    <% end -%>
     <h1><%= link_to "Rosso", root_path %></h1>
+
+
   </header>
 
   <% if flash[:notice] %>
     <div class="notice">
       <%= flash[:notice] %>
+    </div>
+  <% end -%>
+
+  <% if flash[:alert] %>
+    <div class="alert">
+      <%= flash[:alert] %>
     </div>
   <% end -%>
   

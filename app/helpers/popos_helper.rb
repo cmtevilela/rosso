@@ -7,4 +7,9 @@ module PoposHelper
       "Vida Comum"
     end
   end
+
+
+  def popo_role(popo)
+    popo.admin?? "Administrador" : "Comum"
+  end
 end

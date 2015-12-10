@@ -30,6 +30,9 @@ pt-BR:
       popo:
         name: Nome
         is_married: Tipo
+        password: Senha
+        password_confirmation: Confirmação de Senha
+        email: E-mail
   date:
     abbr_day_names:
     - Dom

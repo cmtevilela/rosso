@@ -18,6 +18,7 @@ class CashFlowsController < ApplicationController
 
 	def create
 		@cash_flow = CashFlow.new(cash_flows_params)
+		@cash_flow.popo_id = session[:popo_id]
 
 		if @cash_flow.save
 			redirect_to cash_flows_path, notice: "#{@cash_flow.description} lançado com sucesso!"

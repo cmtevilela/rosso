@@ -1,30 +1,39 @@
-<%= form_for @cash_flow do |f| %>
+<%= form_for @cash_flow, html: { class: "form-horizontal" } do |f| %>
   <% if @cash_flow.errors.any? %>
-    <ul>
+    <div class="alert alert-danger" role="alert">
       <% @cash_flow.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        <span class="sr-only">Error:</span>
+        <%= msg %><br/>
       <% end %>
-    </ul>
+    </div>        
   <% end %>
-  <p>
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
-  </p>
-  <p>
-    <%= f.label :value %><br>
-    <%= f.number_field :value, step: 0.01 %>
-  </p>
-  <p>
-    <%= f.label :date %><br>
-    <%= f.date_field :date %>
-  </p>
-  <p>
-    <%= f.label :kind_id %><br>
-    <%= f.collection_select(:kind_id, Kind.all, :id, :name) %>
-  </p>
-  <p>
-    <%= f.label :popo_id %><br>
-    <%= f.collection_select(:popo_id, Popo.all, :id, :name) %>
-  </p>
-  <p><%= f.submit %></p>
+  <div class="form-group">
+    <%= f.label :kind_id, class: "col-sm-2 control-label" %>
+    <div class="col-md-4">
+      <%= f.collection_select(:kind_id, Kind.all, :id, :name) %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :description, class: "col-sm-2 control-label" %>
+    <div class="col-md-4">
+      <%= f.text_field :description, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :value, class: "col-sm-2 control-label" %>
+    <div class="col-md-4">
+      <%= f.number_field :value, step: 0.01, class: "form-control"%>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :date, class: "col-sm-2 control-label" %>
+    <div class="col-md-4">
+      <%= f.date_field :date %>
+    </div>
+  </div>
+  
+  <div class="col-sm-offset-2 col-sm-10">
+    <%= f.submit "Salvar", class: "btn btn-primary" %>
+  </div>
 <% end %>

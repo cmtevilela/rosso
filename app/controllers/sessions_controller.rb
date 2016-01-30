@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
     else
       if @popo.password == params[:password]
         session[:popo_id] =  @popo.id
-        redirect_to root_path, notice: "Bem vindo #{@popo.name}"
+        redirect_to root_path, notice: "Bem vindo #{@popo.name}!"
       else
         redirect_to login_path, alert: "Email e senha inválidos"
       end

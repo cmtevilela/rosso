@@ -14,15 +14,17 @@
     <div class="navbar-header">
       <%= link_to "Rosso", root_path, class: "navbar-brand" %>
       <ul class="nav navbar-nav">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Configurações<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><%= link_to "Popos", popos_path %></li>
-            <li><%= link_to "Tipos", kinds_path %></li>
-            <li><%= link_to "Categorias", categories_path %></li>
-            <li><%= link_to "Lançamento Entradas / Despesas", cash_flows_path %></li>           
-          </ul>
-        </li>
+        <% if session[:popo_id].present? and Popo.find(session[:popo_id]).admin == true %>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Configurações<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "Popos", popos_path %></li>
+              <li><%= link_to "Tipos", kinds_path %></li>
+              <li><%= link_to "Categorias", categories_path %></li>
+              <li><%= link_to "Lançamento Entradas / Despesas", cash_flows_path %></li>           
+            </ul>
+          </li>
+        <% end %>
       </ul>
     </div>
     

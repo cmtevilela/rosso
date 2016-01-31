@@ -1,4 +1,4 @@
-<%= form_for @cash_flow, html: { class: "form-horizontal" } do |f| %>
+<%= form_for @cash_flow do |f| %>
   <% if @cash_flow.errors.any? %>
     <div class="alert alert-danger" role="alert">
       <% @cash_flow.errors.full_messages.each do |msg| %>
@@ -8,32 +8,34 @@
       <% end %>
     </div>        
   <% end %>
-  <div class="form-group">
-    <%= f.label :kind_id, class: "col-sm-2 control-label" %>
-    <div class="col-md-4">
-      <%= f.collection_select(:kind_id, Kind.all, :id, :name) %>
+
+  <div class="row">
+    <div class="col-xs-6 col-md-2">
+      <div class="form-group">
+        <%= f.label :date %>
+        <%= f.date_field :date, value: Date.today, class: "form-control input-sm" %>
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :description, class: "col-sm-2 control-label" %>
-    <div class="col-md-4">
-      <%= f.text_field :description, class: "form-control" %>
+    <div class="col-xs-6 col-md-2">
+      <div class="form-group">
+        <%= f.label :kind_id %>
+        <%= f.collection_select(:kind_id, Kind.where(category_id: 1), :id, :name, {}, class: "form-control input-sm") %>
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :value, class: "col-sm-2 control-label" %>
-    <div class="col-md-4">
-      <%= f.number_field :value, step: 0.01, class: "form-control"%>
+    <div class="col-xs-6 col-md-2">
+      <div class="form-group">
+        <%= f.label :description %>
+        <%= f.text_field :description, class: "form-control input-sm" %>
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :date, class: "col-sm-2 control-label" %>
-    <div class="col-md-4">
-      <%= f.date_field :date %>
+    <div class="col-xs-6 col-md-1">
+      <div class="form-group">
+        <%= f.label :value %>
+        <%= f.number_field :value, step: 0.01, class: "form-control input-sm" %>
+      </div>
     </div>
-  </div>
-  
-  <div class="col-sm-offset-2 col-sm-10">
     <%= f.submit "Salvar", class: "btn btn-primary" %>
+      
+  </div>
   </div>
 <% end %>

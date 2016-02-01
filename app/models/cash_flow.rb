@@ -6,4 +6,5 @@ class CashFlow < ActiveRecord::Base
 	validates :date, presence: true
 	validates :popo_id, presence: true
 	validates :kind_id, presence:true
+
 end

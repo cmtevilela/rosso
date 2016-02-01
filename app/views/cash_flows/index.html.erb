@@ -1,49 +1,47 @@
-<h1>Descrição das Entradas / Despesas</h1>
-
-<table class="zebra" cellspacing="0" cellpadding="0">
+<table class="table table-striped">
 	<thead>
 		<tr>
 			<th>
 				Data
 			</th>
-		  <th>
-				Popo
-			</th>
-			<th>
-				Descrição
-			</th>
 			<th>
 				Tipo
+			</th>
+		  <th>
+				Descrição
 			</th>
 			<th>
 				Valor
 			</th>
 			<th>
-            </th>	
+      </th>	
 		</tr>
 	</thead>
 	<tbody>
-	  <% @cash_flows.each do |cash_flow| %>
+	  <% @popo_cash_flow.each do |cash_flow| %>
 	  <tr>
 	  	<td>
 	  		<%= cash_flow.date %>
 	  	</td>
-	    <td>
-	  	  <%= Popo.find(cash_flow.popo_id).name %>	
+	  	<td>
+	  		<%= Kind.find(cash_flow.kind_id).name %>
 	  	</td>
       <td>
 	  		<%= cash_flow.description %>
 	  	</td>
 	  	<td>
-	  		<%= Kind.find(cash_flow.kind_id).name %>
-	  	</td>
-	  	<td>
-	  		<%= cash_flow.value %>
+	  		<%= number_to_currency(cash_flow.value) %>
 	  	</td>
 	  	<td> 
-	  	  <%= link_to 'editar', edit_cash_flow_path(cash_flow) %> | 
-          <%= link_to 'remover', cash_flow, method: :delete, data: { confirm: "Você tem certeza que quer remover #{cash_flow.description}?" } %>		
-	  		
+	  		<div class="btn-group btn-group-sm">
+	  	  <%= link_to edit_cash_flow_path(cash_flow), class: "btn btn-default" do %>
+	  	  	<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+	  	  <% end %> 
+          <%= link_to cash_flow, method: :delete, data: { confirm: 
+          	"Você tem certeza que quer remover #{cash_flow.description}?" }, class: "btn btn-default" do %>		
+	  				<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+	  			<% end %>
+	  		</div>
 	  	</td>
 	  	<% end %>
 	  </tr>

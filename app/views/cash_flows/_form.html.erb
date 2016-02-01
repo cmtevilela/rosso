@@ -21,7 +21,7 @@
       <div class="form-group">
         <%= f.label :kind_id %>
         <%= params[:category] %>
-        <%= f.collection_select(:kind_id, Kind.all, :id, :name, 
+        <%= f.collection_select(:kind_id, Kind.where(default: true), :id, :name, 
                                                 {}, class: "form-control input-sm") %>
       </div>
     </div>

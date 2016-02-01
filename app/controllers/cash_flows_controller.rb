@@ -4,6 +4,8 @@ class CashFlowsController < ApplicationController
 	def index
 		@popo_cash_flow = CashFlow.where(popo_id: session[:popo_id])
 		@cash_flows = CashFlow.all.order(:date)
+		@default_kinds = Kind.where(default: true)
+		@cat_1_sum = Kind.where(category_id: 1)
 	end
 
 	def show
@@ -20,8 +22,7 @@ class CashFlowsController < ApplicationController
 	def create
 		@cash_flow = CashFlow.new(cash_flows_params)
 		@cash_flow.popo_id = session[:popo_id]
-		p "=========================="
-		p params[:category]
+
 		if @cash_flow.save
 			redirect_to cash_flows_path, notice: "#{@cash_flow.description} lançado com sucesso!"
 		else

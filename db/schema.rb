@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151209222010) do
+ActiveRecord::Schema.define(version: 20160201170601) do
 
   create_table "cash_flows", force: :cascade do |t|
     t.string   "description", limit: 255
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20151209222010) do
     t.integer  "category_id", limit: 4,   null: false
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+    t.boolean  "default"
   end
 
   add_index "kinds", ["category_id"], name: "index_kinds_on_category_id", using: :btree

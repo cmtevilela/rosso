@@ -10,10 +10,10 @@
         </tr>
       </thead>  
       <tbody>
-        <% @user_cashflows.each do |cash_flow| %>
+        <% @cash_flows.each do |cash_flow| %>
           <tr>
-            <td><%= cash_flow.date %></td>
-            <td><%= cash_flow.kind_id %></td>
+            <td><%=l cash_flow.date, format: :long %></td>
+            <td><%= cash_flow.kind.name %></td>
             <td><%= cash_flow.description %></td>
             <td><%= number_to_currency(cash_flow.value) %></td>
           </tr>
@@ -25,17 +25,18 @@
   <div class="col-md-4">
     <table class="table table-striped">
       <thead>
-        <tr><%= number_to_currency(@values_1.sum) %></tr>
-
-        <tr></tr>
+        <tr>
+          <th>Categoria</th>
+          <th>Soma</th>
+        </tr>
       </thead>
       <tbody>
+        <% @categories_sum.each do |category, sum| %>
           <tr>
-            <td>
-            </td>
+            <td><%= category %></td>
+            <td><%= number_to_currency sum %></td>
           </tr>
-          <tr>
-          </tr>
+        <% end -%>
       </tbody>
     </table>
   </div>

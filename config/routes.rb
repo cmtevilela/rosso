@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
 
-  root 'users#index'
+  devise_for :users, controllers: { registrations: 'users/registrations'}
+  
+  authenticated :user do
+    root to: 'users#index', as: :authenticated_root
+  end
+  root to: redirect('/users/sign_in')
 
   # get 'login' => "sessions#new"
   # post 'login' => "sessions#create"

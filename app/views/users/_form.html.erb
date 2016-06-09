@@ -22,22 +22,9 @@
   </p>
 
   <p>
-
     <%= f.label :password_confirmation %><br>
     <%= f.password_field :password_confirmation %>
   </p>
-
-
-
-  <p>
-    <%= f.radio_button :admin, true %>
-    <%= f.label :admin_true, "Administrador" %>
-    <%= f.radio_button :admin, false %>
-    <%= f.label :admin_false, "Usuário Comum"  %>
-  </p>
-
-
-
   <p>
     <%= f.label :is_married %><br>
     <%= f.select :is_married, [["Casado", true], ["Vida Comum", false]] %>

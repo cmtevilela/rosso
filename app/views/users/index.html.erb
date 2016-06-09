@@ -4,50 +4,47 @@
 <table class="zebra" cellspacing="0" cellpadding="0">
   <thead>
     <tr>
-      <th>
-        Nome
-      </th>
-
-      <th>
-        Email
-      </th>
-      
-      <th>
-        Tipo
-      </th>
-
-      <th>
-      </th>
+      <th>Nome</th>
+      <th>Email</th>
+      <th>Tipo</th>
+      <th> Aprovado? </th>
+      <th></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td>
-          <%= link_to user.name, user %>
-        </td>
+    <% if @users.nil? %>
+      Não existem usuários
+    <% else %>
+      <% @users.each do |user| %>
+        <tr>
+          <td>
+            <%= link_to user.name, user %>
+          </td>
 
-        <td>
-          <%= user.email %>
-        </td>
+          <td>
+            <%= user.email %>
+          </td>
 
-        <td>
-          <%= user_status(user) %>
-        </td>
+          <td>
+            <%= user_status(user) %>
+          </td>
 
-        <td>
-          <%= link_to "editar", edit_user_path(user) %> | 
-          <%= link_to 'remover', user, method: :delete, data: { confirm: "Você tem certeza que quer remover #{user.name}?" } %>
-        </td>
-      </tr>
+          <td><%= user.approved %></td>
+
+          <td>
+            <%= link_to "editar", edit_user_path(user) %> | 
+            <%= link_to 'remover', user, method: :delete, data: { confirm: "Você tem certeza que quer remover #{user.name}?" } %>
+          </td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 
 </table>
 
-
-
+<%= link_to "Todos os Usuários", action: :index %><br/>
+<%= link_to "Usuários aguardando aprovação", action: :index , approved: "false" %>
 
 
 <p><%= link_to "Cadastrar user", new_user_path%></p>

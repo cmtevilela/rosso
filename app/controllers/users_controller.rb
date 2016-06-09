@@ -2,7 +2,11 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
-    @users = User.all.order(:name)
+    if params[:approved] == "false"
+      @users = User.find_by_approved(false)
+    else
+      @users = User.all.order(:name)
+    end
   end
   
   def show

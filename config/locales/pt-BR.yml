@@ -1,12 +1,12 @@
 pt-BR:
   activerecord:
     models:
-      popo: Focolarino
+      user: Usuário
       kind: Tipo
       category: Categoria
       cash_flow: Fluxo de Caixa
     attributes:
-      popo:
+      user:
         name: Nome
         is_married: Tipo
         password: Senha

@@ -1,4 +1,4 @@
-class Popo < ActiveRecord::Base
+class User < ActiveRecord::Base
 	has_many :cash_flows
 
   validates :name, presence: true

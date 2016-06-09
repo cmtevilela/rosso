@@ -1,7 +1,7 @@
-<%= form_for @popo do |f| %>
-  <% if @popo.errors.any? %>
+<%= form_for @user do |f| %>
+  <% if @user.errors.any? %>
     <ul>
-      <% @popo.errors.full_messages.each do |msg| %>
+      <% @user.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
     </ul>

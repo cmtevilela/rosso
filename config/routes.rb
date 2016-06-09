@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
 
-  root 'popos#index'
+  root 'users#index'
 
   # get 'login' => "sessions#new"
   # post 'login' => "sessions#create"
   # delete 'logout' => "sessions#destroy"
 
   # resources :current_user
-  resources :popos
+  resources :users
   resources :kinds
   resources :categories
   resources :cash_flows

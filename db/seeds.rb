@@ -116,11 +116,11 @@ categories.each do |category|
 end
 
 popos_casados.each do |i|
-	Popo.create(name:i, is_married:true)
+	User.create(name:i, is_married:true)
 end
 
 popos_vc.each do |i|
-	Popo.create(name:i, is_married:false)
+	User.create(name:i, is_married:false)
 end
 
 ent_ord.each do |i|

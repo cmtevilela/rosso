@@ -1,6 +1,6 @@
 class CurrentUserController < ApplicationController
   def index
-    @popo = Popo.find(session[:popo_id])
+    # @popo = Popo.find(session[:popo_id])
     @cash_flows = @popo.cash_flows.joins(:kind).order(:date, "kinds.name")
     
     @categories_sum = {}
